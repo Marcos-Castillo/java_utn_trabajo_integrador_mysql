@@ -2,21 +2,22 @@ package com.utn.integracion.model;
 
 public class Pronostico {
     private int idPronostico;
-    private Equipo equipo1;
-    private Equipo equipo2;
+    private String equipo1;
+    private String equipo2;
     private int golesEq1;
     private int golesEq2;
     private String descripcion;
-    private Resultado resultado;
+    private int ronda;
+    
 
-    public Pronostico(int idPronostico, Equipo equipo1, Equipo equipo2, int golesEq1, int golesEq2, String descripcion, Resultado resultado) {
+    public Pronostico(int idPronostico, String equipo1, String equipo2, int golesEq1, int golesEq2, String descripcion, Resultado resultado) {
         this.idPronostico = idPronostico;
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
         this.golesEq1 = golesEq1;
         this.golesEq2 = golesEq2;
         this.descripcion = descripcion;
-        this.resultado = resultado;
+        
     }
 
     public int getIdPronostico() {
@@ -27,19 +28,19 @@ public class Pronostico {
         this.idPronostico = idPronostico;
     }
 
-    public Equipo getEquipo1() {
+    public String getEquipo1() {
         return equipo1;
     }
 
-    public void setEquipo1(Equipo equipo1) {
+    public void String(String equipo1) {
         this.equipo1 = equipo1;
     }
 
-    public Equipo getEquipo2() {
+    public String getEquipo2() {
         return equipo2;
     }
 
-    public void setEquipo2(Equipo equipo2) {
+    public void setEquipo2(String equipo2) {
         this.equipo2 = equipo2;
     }
 
@@ -68,11 +69,10 @@ public class Pronostico {
     }
 
     public Resultado getResultado() {
+    	Resultado resultado = new Resultado();
         return resultado;
     }
 
-    public void setResultado(Resultado resultado) {
-        this.resultado = resultado;
-    }
+
 
 }

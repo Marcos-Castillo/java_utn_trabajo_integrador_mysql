@@ -24,6 +24,9 @@ public class IntegracionApplication {
                                     IO.leerEquipos(connection);
                                     IO.cargarResultado(1,1,2,0);
                                     IO.cargarPartido(1,1,1,1," todo  ok");
+                                    
+                                    
+                                    
                                  // cerrar la conexión a la base de datos
                                     connection.close();
 	}

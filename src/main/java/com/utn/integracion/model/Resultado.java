@@ -11,7 +11,11 @@ public class Resultado {
         this.puntos = puntos;
     }
 
-    public int getIdResultado() {
+    public Resultado() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getIdResultado() {
         return idResultado;
     }
 
