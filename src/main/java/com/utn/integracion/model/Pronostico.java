@@ -1,5 +1,12 @@
 package com.utn.integracion.model;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import com.utn.integracion.IO.IO;
+
 public class Pronostico {
     private int idPronostico;
     private String equipo1;
@@ -68,10 +75,25 @@ public class Pronostico {
         this.descripcion = descripcion;
     }
 
-    public Resultado getResultado() {
-    	Resultado resultado = new Resultado();
-        return resultado;
-    }
+    public static void pronosticoCsv() {
+		String file="pronostico.csv";
+		
+		String line;
+		
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			while ((line = reader.readLine()) != null) {
+				
+				
+			IO.cargarResultado(Integer.parseInt(line.split(",")[0]), Integer.parseInt(line.split(",")[1]), Integer.parseInt(line.split(",")[2]), Integer.parseInt(line.split(",")[3]));			}
+			reader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found in specifid path " + file);
+		} catch (Exception e) {
+			System.out.println("Error while reading the xml file");
+		}
+		
+	}
 
 
 
