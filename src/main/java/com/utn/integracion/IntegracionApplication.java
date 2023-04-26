@@ -19,13 +19,15 @@ public class IntegracionApplication {
                         	   	// Obtener la conexión a la base de datos
                                   ConexionJDBC ConexJDBC = ConexionJDBC.getInstance();
                                   Connection connection = ConexJDBC.getConexion();
-                                
-                                    //IO.cargarEquipo("Argentina", "el mejor");
-                                    IO.leerEquipos(connection);
-                                    IO.cargarResultado(1,1,2,0);
-                                    IO.cargarPartido(1,1,1,1," todo  ok");
+
+                                  //carga los archivos del csv a la bbdd
+                                  
+                                   // IO.leerCsvPronostico();
+                                    IO.CalcularPuntos(connection);
+
                                     
-                                    
+                                    //mustra resultados
+                                    IO.leerPuntos(connection);
                                     
                                  // cerrar la conexión a la base de datos
                                     connection.close();

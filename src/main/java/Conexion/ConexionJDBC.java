@@ -13,9 +13,9 @@ public class ConexionJDBC {
     private Connection conexion;
 
     private ConexionJDBC() {
-    	String url ="jdbc:mysql://localhost/utn_integracion";
-        String user = "root";
-        String password= "root1234";
+    	String url;
+        String user ;
+        String password;
     	//obtenindo config desde propieties inicio
     	try {
             java.util.Properties props = new Properties();
@@ -24,18 +24,13 @@ public class ConexionJDBC {
             user = props.getProperty("database.user");
             password = props.getProperty("database.password");
             
-
+            conexion = DriverManager.getConnection(url, user, password);
             // Use the values...
-          } catch (IOException e) {
+          } catch (Exception e) {
             System.err.println("Error loading properties file: " + e.getMessage());
           }
     	//obtenindo config desde propieties fin
-        try {
-         
-            conexion = DriverManager.getConnection(url, user, password);
-        } catch (SQLException ex) {
-            System.out.println("Error al conectar con la base de datos.");
-        }
+       
     }
 
     public static ConexionJDBC getInstance() {
